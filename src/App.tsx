@@ -1,16 +1,26 @@
-import { HeaderMain } from "@components/HeaderMain/HeaderMain";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HeaderAuth from "@components/HeaderAuth";
+import HeaderMain from "@components/HeaderMain";
+import LoginForm from "@components/LoginForm";
+import AuthPage from "@pages/AuthPage";
+import ContentPageLayout from "@pages/ContentPageLayout";
+import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 
 function App() {
 	return (
 		<div className="App">
 			<BrowserRouter>
 				<Routes>
-					<Route path="/" element={<HeaderMain />} />
-					<Route path="/tracks" element={<>tracks</>} />
-					<Route path="/artists" element={<>artists</>} />
-					<Route path="/genres" element={<>genres</>} />
-					<Route path="/playlists" element={<>playlists</>} />
+					<Route path="/" element={<ContentPageLayout />}>
+						<Route index element={<>Profile</>} />
+						<Route path="tracks" element={<>tracks</>} />
+						<Route path="artists" element={<>artists</>} />
+						<Route path="genres" element={<>genres</>} />
+						<Route path="playlists" element={<>playlists</>} />
+					</Route>
+					<Route path="/auth" element={<AuthPage />}>
+						<Route index element={<LoginForm />} />
+						<Route path="reg" element={"Регистрация"} />
+					</Route>
 					<Route
 						path="*"
 						element={

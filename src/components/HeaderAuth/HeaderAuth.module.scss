@@ -1,0 +1,40 @@
+.body {
+	display: flex;
+	justify-content: right;
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.nav {
+	display: flex;
+	align-items: center;
+	background: white;
+	transition: 0.3s linear;
+	padding: 0px;
+}
+
+.list {
+	display: flex;
+	gap: 20px;
+	margin: 0px;
+	align-items: center;
+}
+
+.link {
+	text-align: center;
+	display: block;
+	cursor: pointer;
+	text-decoration: none;
+	color: black;
+	&:hover {
+		color: cyan;
+	}
+	@media (min-width: 768px) {
+		margin-bottom: 0px;
+		font-size: 1rem;
+	}
+	&Active {
+		color: cyan;
+	}
+}

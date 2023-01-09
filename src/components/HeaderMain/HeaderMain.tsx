@@ -2,10 +2,10 @@ import { FC, useState } from "react";
 import Burger from "@assets/icons/burger.svg";
 import cn from "classnames";
 import { NavLink } from "react-router-dom";
-import styles from "./Header.module.scss";
-import { HeaderProps } from "./Header.props";
+import styles from "./HeaderMain.module.scss";
+import { HeaderProps } from "./HeaderMain.props";
 
-export const HeaderMain: FC<HeaderProps> = () => {
+const HeaderMain: FC<HeaderProps> = () => {
 	const [navIsActive, setNavIsActive] = useState<boolean>(false);
 	return (
 		<header className={styles.block}>
@@ -93,3 +93,5 @@ export const HeaderMain: FC<HeaderProps> = () => {
 		</header>
 	);
 };
+
+export default HeaderMain;
