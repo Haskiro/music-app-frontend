@@ -1,6 +1,7 @@
 import HeaderAuth from "@components/HeaderAuth";
 import HeaderMain from "@components/HeaderMain";
 import LoginForm from "@components/LoginForm";
+import RegisterForm from "@components/RegisterForm";
 import AuthPage from "@pages/AuthPage";
 import ContentPageLayout from "@pages/ContentPageLayout";
 import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
@@ -19,7 +20,7 @@ function App() {
 					</Route>
 					<Route path="/auth" element={<AuthPage />}>
 						<Route index element={<LoginForm />} />
-						<Route path="reg" element={"Регистрация"} />
+						<Route path="reg" element={<RegisterForm />} />
 					</Route>
 					<Route
 						path="*"

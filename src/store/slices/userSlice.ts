@@ -23,6 +23,11 @@ export interface ILoginData {
 	password: string;
 }
 
+export interface IRegisterData extends ILoginData {
+	last_name: string;
+	first_name: string;
+}
+
 const initialState: UserState = {
 	user: null,
 	accessToken: null,
@@ -45,6 +50,23 @@ export const authUser = createAsyncThunk(
 	}
 );
 
+export const registerUser = createAsyncThunk(
+	"user/registerUser",
+	async (registerData: IRegisterData) => {
+		console.log(registerData);
+		const response = await axios.post(
+			`${process.env.REACT_APP_HOST}/auth/register/`,
+			registerData,
+			{
+				headers: {
+					"Content-Type": "application/json",
+				},
+			}
+		);
+		return response.data;
+	}
+);
+
 export const userSlice = createSlice({
 	name: "user",
 	initialState,
@@ -53,7 +75,7 @@ export const userSlice = createSlice({
 		// 	state.value += action.payload;
 		// },
 		logout: (state) => {
-			state.accessToken = "";
+			state.accessToken = null;
 		},
 	},
 	extraReducers(builder) {
@@ -66,6 +88,16 @@ export const userSlice = createSlice({
 				state.accessToken = action.payload.access;
 			})
 			.addCase(authUser.rejected, (state) => {
+				state.status = "failed";
+			})
+			.addCase(registerUser.pending, (state) => {
+				state.status = "loading";
+			})
+			.addCase(registerUser.fulfilled, (state, action) => {
+				state.status = "succeeded";
+				state.accessToken = action.payload.access;
+			})
+			.addCase(registerUser.rejected, (state) => {
 				state.status = "failed";
 			});
 	},
