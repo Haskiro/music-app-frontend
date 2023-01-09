@@ -1,0 +1,142 @@
+.body {
+	display: flex;
+	justify-content: space-between;
+	position: relative;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.user {
+	display: flex;
+	position: relative;
+	z-index: 10;
+	gap: 30px;
+	align-items: center;
+	@media (max-width: 450px) {
+		gap: 15px;
+	}
+}
+.text {
+	font-weight: 600;
+	font-size: 1.1rem;
+	line-height: 1.3;
+	@media (max-width: 450px) {
+		font-size: 1rem;
+	}
+}
+.button {
+	border: none;
+	border-radius: 10px;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	background: white;
+	padding: 10px 20px;
+	cursor: pointer;
+	font-size: 1rem;
+	transition: 0.2s ease;
+	@media (max-width: 450px) {
+		font-size: 0.9rem;
+		padding: 8px 17px;
+	}
+	&:hover {
+		transform: scale(1.05);
+		transition: 0.2s ease;
+	}
+}
+.nav {
+	position: absolute;
+	transition: 0.3s linear;
+	left: 0;
+	top: -532px;
+	visibility: hidden;
+	@media (min-width: 768px) {
+		position: relative;
+		visibility: visible;
+		top: auto;
+		left: auto;
+		right: 0;
+	}
+	&Active {
+		top: 0;
+		visibility: visible;
+	}
+}
+.burger {
+	position: absolute;
+	right: 10px;
+	top: 50%;
+	transform: translateY(-50%);
+	background: none;
+	border: none;
+	width: 50px;
+	height: 50px;
+	padding: 0;
+	z-index: 10;
+	& > svg {
+		cursor: pointer;
+		width: 100%;
+	}
+	@media (min-width: 768px) {
+		display: none;
+	}
+}
+
+.nav {
+	padding: 60px 0px 100px;
+	width: 100vw;
+	z-index: 9;
+	height: 532px;
+	display: flex;
+	align-items: center;
+	background: white;
+	position: absolute;
+	transition: 0.3s linear;
+	left: 0;
+	top: -532px;
+	visibility: hidden;
+	&Active {
+		top: 0;
+		visibility: visible;
+	}
+	@media (min-width: 768px) {
+		background: none;
+		height: auto;
+		width: auto;
+		padding: 0px;
+		position: relative;
+		visibility: visible;
+		top: auto;
+		left: auto;
+		right: 0;
+	}
+}
+
+.list {
+	max-width: 200px;
+	margin: 60px auto 0px;
+	align-items: center;
+	@media (min-width: 768px) {
+		display: flex;
+		gap: 20px;
+		margin: 0px;
+		max-width: none;
+		align-items: center;
+	}
+}
+.link {
+	text-align: center;
+	margin-bottom: 30px;
+	display: block;
+	cursor: pointer;
+	font-size: 1.3rem;
+	text-decoration: none;
+	color: black;
+	&:hover {
+		color: cyan;
+	}
+	@media (min-width: 768px) {
+		margin-bottom: 0px;
+		font-size: 1rem;
+	}
+	&Active {
+		color: cyan;
+	}
+}
