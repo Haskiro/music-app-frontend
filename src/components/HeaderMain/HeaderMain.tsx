@@ -60,6 +60,7 @@ const HeaderMain: FC<HeaderProps> = () => {
 						<li className={styles.item}>
 							<NavLink
 								to="/artists"
+								end
 								onClick={() => setNavIsActive(false)}
 								className={({ isActive }) =>
 									cn(styles.link, {
@@ -73,6 +74,7 @@ const HeaderMain: FC<HeaderProps> = () => {
 						<li className={styles.item}>
 							<NavLink
 								to="/genres"
+								end
 								onClick={() => setNavIsActive(false)}
 								className={({ isActive }) =>
 									cn(styles.link, {
@@ -86,6 +88,7 @@ const HeaderMain: FC<HeaderProps> = () => {
 						<li className={styles.item}>
 							<NavLink
 								to="/playlists"
+								end
 								onClick={() => setNavIsActive(false)}
 								className={({ isActive }) =>
 									cn(styles.link, {

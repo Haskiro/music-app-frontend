@@ -1,25 +1,16 @@
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import Spinner from "@components/Spinner";
-import { useAppDispatch, useAppSelector } from "@store/hooks";
-import { fetchTracks } from "@store/slices/trackListSlice";
+import { trackListState } from "@store/slices/trackListSlice";
 import { Link } from "react-router-dom";
 import styles from "./TrackList.module.scss";
 
-const TrackList: FC = () => {
-	const dispatch = useAppDispatch();
-	const tracks = useAppSelector((state) => state.trackList.trackList);
-	const status = useAppSelector((state) => state.trackList.status);
-
-	useEffect(() => {
-		dispatch(fetchTracks());
-	}, []);
-
+const TrackList: FC<trackListState> = ({ trackList, status }) => {
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.heading}>Список треков</h1>
 			<ul className={styles.list}>
 				{status === "succeeded"
-					? tracks?.map((track) => (
+					? trackList?.map((track) => (
 							<li className={styles.item} key={track.id}>
 								<div className={styles.card}>
 									<div className={styles.block}>
@@ -38,7 +29,7 @@ const TrackList: FC = () => {
 												{track.artists_data.map(
 													(artist) => (
 														<Link
-															to={`artists/${artist.id}`}
+															to={`/artists/${artist.id}`}
 															className={
 																styles.link
 															}

@@ -1,4 +1,7 @@
 .container {
+	& svg {
+		max-width: 40px;
+	}
 }
 .heading {
 	text-align: center;

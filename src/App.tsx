@@ -1,9 +1,9 @@
-import AlbumList from "@components/AlbumList";
 import LoginForm from "@components/LoginForm";
 import RegisterForm from "@components/RegisterForm";
-import TrackList from "@components/TrackList";
+import ArtistDetailsPage from "@pages/ArtistDetailsPage";
 import AuthPage from "@pages/AuthPage";
 import ContentPageLayout from "@pages/ContentPageLayout";
+import TrackListPage from "@pages/TrackListPage";
 import UserProfile from "@pages/UserProfile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
@@ -14,8 +14,12 @@ function App() {
 				<Routes>
 					<Route path="/" element={<ContentPageLayout />}>
 						<Route index element={<UserProfile />} />
-						<Route path="tracks" element={<TrackList />} />
-						<Route path="artists" element={<AlbumList />} />
+						<Route path="tracks" element={<TrackListPage />} />
+						<Route path="artists" element={<>artists</>} />
+						<Route
+							path="artists/:id"
+							element={<ArtistDetailsPage />}
+						/>
 						<Route path="genres" element={<>genres</>} />
 						<Route path="playlists" element={<>playlists</>} />
 					</Route>
