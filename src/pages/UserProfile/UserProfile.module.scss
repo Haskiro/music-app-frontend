@@ -1,0 +1,34 @@
+.container {
+	& svg {
+		max-width: 40px;
+	}
+}
+
+.header {
+	display: flex;
+	gap: 30px;
+	@media (max-width: 480px) {
+		flex-direction: column-reverse;
+	}
+}
+.photo {
+	display: block;
+	width: 250px;
+	height: 250px;
+	object-fit: cover;
+	border-radius: 15px;
+}
+.block {
+	display: block;
+}
+.title {
+	font-size: 1.4rem;
+	line-height: 1.2;
+	font-weight: 600;
+}
+.text {
+	max-width: 85ch;
+}
+.body {
+	margin-top: 50px;
+}

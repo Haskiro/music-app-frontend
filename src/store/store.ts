@@ -13,16 +13,16 @@ import storage from "redux-persist/lib/storage";
 import userReducer from "./slices/userSlice";
 
 const persistConfig = {
-	key: "user",
+	key: "root",
 	version: 1,
 	storage,
-	whitelist: ["user"],
+	whitelist: [],
 };
 
 const userPersistConfig = {
-	key: "accessToken",
+	key: "user",
 	storage,
-	whitelist: ["accessToken"],
+	blacklist: ["status"],
 };
 
 const rootReducer = combineReducers({

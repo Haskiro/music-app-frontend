@@ -1,7 +1,7 @@
 import { FC, FormEvent, useEffect, useState } from "react";
+import Spinner from "@components/Spinner";
+import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { registerUser } from "@store/slices/userSlice";
-import { AppDispatch, RootState } from "@store/store";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "./RegisterForm.module.scss";
 
@@ -12,10 +12,9 @@ const LoginForm: FC = () => {
 	const [lastName, setLastName] = useState<string>("");
 	const navigate = useNavigate();
 
-	const dispatch: AppDispatch = useDispatch();
-	const accessToken = useSelector(
-		(state: RootState) => state.user.accessToken
-	);
+	const dispatch = useAppDispatch();
+	const accessToken = useAppSelector((state) => state.user.accessToken);
+	const status = useAppSelector((state) => state.user.status);
 
 	useEffect(() => {
 		if (accessToken) navigate("/");
@@ -40,7 +39,7 @@ const LoginForm: FC = () => {
 
 	return (
 		<div className={styles.block}>
-			<h1 className={styles.heading}>Вход</h1>
+			<h1 className={styles.heading}>Регистрация</h1>
 			<form method="POST">
 				<label htmlFor="first_name" style={{ display: "none" }}>
 					Имя
@@ -106,8 +105,9 @@ const LoginForm: FC = () => {
 					className={styles.button}
 					type="submit"
 					onClick={handleSubmit}
+					disabled={status === "loading"}
 				>
-					Отправить
+					{status === "loading" ? <Spinner /> : "Отправить"}
 				</button>
 			</form>
 		</div>

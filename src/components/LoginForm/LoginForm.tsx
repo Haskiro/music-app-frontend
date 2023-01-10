@@ -1,7 +1,7 @@
 import { FC, FormEvent, useEffect, useState } from "react";
+import Spinner from "@components/Spinner";
+import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { authUser } from "@store/slices/userSlice";
-import { AppDispatch, RootState } from "@store/store";
-import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.scss";
 
@@ -10,10 +10,9 @@ const LoginForm: FC = () => {
 	const [password, setPassword] = useState<string>("");
 	const navigate = useNavigate();
 
-	const dispatch: AppDispatch = useDispatch();
-	const accessToken = useSelector(
-		(state: RootState) => state.user.accessToken
-	);
+	const dispatch = useAppDispatch();
+	const accessToken = useAppSelector((state) => state.user.accessToken);
+	const status = useAppSelector((state) => state.user.status);
 
 	useEffect(() => {
 		if (accessToken) navigate("/");
@@ -67,8 +66,9 @@ const LoginForm: FC = () => {
 					className={styles.button}
 					type="submit"
 					onClick={handleSubmit}
+					disabled={status === "loading"}
 				>
-					Отправить
+					{status === "loading" ? <Spinner /> : "Отправить"}
 				</button>
 			</form>
 		</div>

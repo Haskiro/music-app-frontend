@@ -1,22 +1,22 @@
 import { FC, useState } from "react";
 import Burger from "@assets/icons/burger.svg";
+import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { logout } from "@store/slices/userSlice";
-import { AppDispatch } from "@store/store";
 import cn from "classnames";
-import { useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import styles from "./HeaderMain.module.scss";
 import { HeaderProps } from "./HeaderMain.props";
 
 const HeaderMain: FC<HeaderProps> = () => {
 	const [navIsActive, setNavIsActive] = useState<boolean>(false);
-	const dispatch: AppDispatch = useDispatch();
+	const dispatch = useAppDispatch();
+	const name = useAppSelector((state) => state.user.user?.first_name);
 
 	return (
 		<header className={styles.block}>
 			<div className={cn(styles.body, "container")}>
 				<div className={styles.user}>
-					<p className={styles.text}>Павел</p>
+					<p className={styles.text}>{name}</p>
 					<button
 						className={styles.button}
 						onClick={() => dispatch(logout())}

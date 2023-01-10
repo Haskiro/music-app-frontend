@@ -1,10 +1,9 @@
-import HeaderAuth from "@components/HeaderAuth";
-import HeaderMain from "@components/HeaderMain";
 import LoginForm from "@components/LoginForm";
 import RegisterForm from "@components/RegisterForm";
 import AuthPage from "@pages/AuthPage";
 import ContentPageLayout from "@pages/ContentPageLayout";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
+import UserProfile from "@pages/UserProfile";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
 	return (
@@ -12,7 +11,7 @@ function App() {
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<ContentPageLayout />}>
-						<Route index element={<>Profile</>} />
+						<Route index element={<UserProfile />} />
 						<Route path="tracks" element={<>tracks</>} />
 						<Route path="artists" element={<>artists</>} />
 						<Route path="genres" element={<>genres</>} />
