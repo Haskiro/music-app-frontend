@@ -3,7 +3,7 @@ import AlbumList from "@components/AlbumList";
 import Spinner from "@components/Spinner";
 import TrackList from "@components/TrackList";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
-import { fetchArtist } from "@store/slices/artistDetailsSlice";
+import { fetchArtistById } from "@store/slices/artistDetailsSlice";
 import { useParams } from "react-router-dom";
 import styles from "./ArtistDetailsPage.module.scss";
 
@@ -14,7 +14,7 @@ const ArtistDetailsPage: FC = () => {
 	const status = useAppSelector((state) => state.artistDetails.status);
 
 	useEffect(() => {
-		dispatch(fetchArtist(id as string));
+		dispatch(fetchArtistById(id as string));
 	}, [id]);
 
 	return (

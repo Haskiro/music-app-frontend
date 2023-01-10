@@ -13,7 +13,7 @@ const initialState: artistDetailsState = {
 	status: "idle",
 };
 
-export const fetchArtist = createAsyncThunk(
+export const fetchArtistById = createAsyncThunk(
 	"artistDetails/fetchArtist",
 	async (id: string) => {
 		const response = await axios.get(
@@ -24,22 +24,22 @@ export const fetchArtist = createAsyncThunk(
 );
 
 export const artistDetailsSlice = createSlice({
-	name: "trackList",
+	name: "artistDetails",
 	initialState,
 	reducers: {},
 	extraReducers(builder) {
 		builder
-			.addCase(fetchArtist.pending, (state) => {
+			.addCase(fetchArtistById.pending, (state) => {
 				state.status = "loading";
 			})
 			.addCase(
-				fetchArtist.fulfilled,
+				fetchArtistById.fulfilled,
 				(state, action: PayloadAction<IArtist>) => {
 					state.status = "succeeded";
 					state.artist = action.payload;
 				}
 			)
-			.addCase(fetchArtist.rejected, (state) => {
+			.addCase(fetchArtistById.rejected, (state) => {
 				state.status = "failed";
 			});
 	},

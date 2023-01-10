@@ -1,6 +1,7 @@
 import LoginForm from "@components/LoginForm";
 import RegisterForm from "@components/RegisterForm";
 import ArtistDetailsPage from "@pages/ArtistDetailsPage";
+import ArtistListPage from "@pages/ArtistListPage";
 import AuthPage from "@pages/AuthPage";
 import ContentPageLayout from "@pages/ContentPageLayout";
 import TrackListPage from "@pages/TrackListPage";
@@ -15,7 +16,7 @@ function App() {
 					<Route path="/" element={<ContentPageLayout />}>
 						<Route index element={<UserProfile />} />
 						<Route path="tracks" element={<TrackListPage />} />
-						<Route path="artists" element={<>artists</>} />
+						<Route path="artists" element={<ArtistListPage />} />
 						<Route
 							path="artists/:id"
 							element={<ArtistDetailsPage />}
