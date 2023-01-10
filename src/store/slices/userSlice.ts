@@ -1,20 +1,8 @@
+import { IAccessToken, IUser } from "@interfaces/user.interface";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "@store/store";
 import axios from "axios";
-
-export interface IUser {
-	email: string;
-	first_name: string;
-	last_name: string;
-	photo: string;
-	bio: string;
-	is_active: boolean;
-}
-
-export interface IAccessToken {
-	access: string;
-}
 
 export interface UserState {
 	user: IUser | null;
@@ -35,7 +23,7 @@ export interface IRegisterData extends ILoginData {
 const initialState: UserState = {
 	user: null,
 	accessToken: null,
-	status: "loading",
+	status: "idle",
 };
 
 export const authUser = createAsyncThunk(

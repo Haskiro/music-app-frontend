@@ -10,6 +10,7 @@ import {
 	REGISTER,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
+import trackListReducer from "./slices/trackListSlice";
 import userReducer from "./slices/userSlice";
 
 const persistConfig = {
@@ -27,6 +28,7 @@ const userPersistConfig = {
 
 const rootReducer = combineReducers({
 	user: persistReducer(userPersistConfig, userReducer),
+	trackList: trackListReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
