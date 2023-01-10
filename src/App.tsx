@@ -4,6 +4,7 @@ import ArtistDetailsPage from "@pages/ArtistDetailsPage";
 import ArtistListPage from "@pages/ArtistListPage";
 import AuthPage from "@pages/AuthPage";
 import ContentPageLayout from "@pages/ContentPageLayout";
+import PlaylistsPage from "@pages/PlaylistsPage";
 import TrackListPage from "@pages/TrackListPage";
 import UserProfile from "@pages/UserProfile";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -22,7 +23,7 @@ function App() {
 							element={<ArtistDetailsPage />}
 						/>
 						<Route path="genres" element={<>genres</>} />
-						<Route path="playlists" element={<>playlists</>} />
+						<Route path="playlists" element={<PlaylistsPage />} />
 					</Route>
 					<Route path="/auth" element={<AuthPage />}>
 						<Route index element={<LoginForm />} />

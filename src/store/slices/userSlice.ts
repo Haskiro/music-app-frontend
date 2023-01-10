@@ -81,9 +81,6 @@ export const userSlice = createSlice({
 	name: "user",
 	initialState,
 	reducers: {
-		// incrementByAmount: (state, action: PayloadAction<number>) => {
-		// 	state.value += action.payload;
-		// },
 		logout: (state) => {
 			state.accessToken = null;
 		},
