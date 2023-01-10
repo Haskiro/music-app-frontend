@@ -3,7 +3,7 @@ import Burger from "@assets/icons/burger.svg";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { logout } from "@store/slices/userSlice";
 import cn from "classnames";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import styles from "./HeaderMain.module.scss";
 import { HeaderProps } from "./HeaderMain.props";
 
@@ -16,7 +16,9 @@ const HeaderMain: FC<HeaderProps> = () => {
 		<header className={styles.block}>
 			<div className={cn(styles.body, "container")}>
 				<div className={styles.user}>
-					<p className={styles.text}>{name}</p>
+					<Link to="/" className={styles.text}>
+						{name}
+					</Link>
 					<button
 						className={styles.button}
 						onClick={() => dispatch(logout())}

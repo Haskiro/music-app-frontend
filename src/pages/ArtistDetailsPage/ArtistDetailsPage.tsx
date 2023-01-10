@@ -21,27 +21,23 @@ const ArtistDetailsPage: FC = () => {
 		<div className={styles.container}>
 			{status === "succeeded" ? (
 				<>
-					<div className={styles.aboutArtist}>
-						<div className={styles.header}>
-							<img
-								src={artist?.photo}
-								alt="Фотография"
-								className={styles.photo}
-								height="250"
-								width="250"
-							/>
-							<div className={styles.block}>
-								<h1 className={styles.title}>
-									{artist?.nickname}
-								</h1>
-								<p className={styles.text}>
-									{artist?.first_name} {artist?.last_name}
-								</p>
-							</div>
+					<div className={styles.header}>
+						<img
+							src={artist?.photo}
+							alt="Фотография"
+							className={styles.photo}
+							height="250"
+							width="250"
+						/>
+						<div className={styles.block}>
+							<h1 className={styles.title}>{artist?.nickname}</h1>
+							<p className={styles.text}>
+								{artist?.first_name} {artist?.last_name}
+							</p>
 						</div>
-						<div className={styles.body}>
-							<p className={styles.text}>{artist?.bio}</p>
-						</div>
+					</div>
+					<div className={styles.body}>
+						<p className={styles.text}>{artist?.bio}</p>
 					</div>
 					<AlbumList
 						albumList={artist?.albums_data || null}

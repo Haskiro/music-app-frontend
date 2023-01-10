@@ -13,6 +13,7 @@ import storage from "redux-persist/lib/storage";
 import albumListReducer from "./slices/albumListSlice";
 import artistDetailsReducer from "./slices/artistDetailsSlice";
 import artistListReducer from "./slices/artistListSlice";
+import playlistDetailsReducer from "./slices/playlistDetailsSlice";
 import plyalistsReducer from "./slices/playlistsSlice";
 import trackListReducer from "./slices/trackListSlice";
 import userReducer from "./slices/userSlice";
@@ -37,6 +38,7 @@ const rootReducer = combineReducers({
 	artistList: artistListReducer,
 	playlists: plyalistsReducer,
 	artistDetails: artistDetailsReducer,
+	playlistDetails: playlistDetailsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

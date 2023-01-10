@@ -4,6 +4,7 @@ import ArtistDetailsPage from "@pages/ArtistDetailsPage";
 import ArtistListPage from "@pages/ArtistListPage";
 import AuthPage from "@pages/AuthPage";
 import ContentPageLayout from "@pages/ContentPageLayout";
+import PlaylistDetailsPage from "@pages/PlaylistDetailsPage";
 import PlaylistsPage from "@pages/PlaylistsPage";
 import TrackListPage from "@pages/TrackListPage";
 import UserProfile from "@pages/UserProfile";
@@ -24,6 +25,10 @@ function App() {
 						/>
 						<Route path="genres" element={<>genres</>} />
 						<Route path="playlists" element={<PlaylistsPage />} />
+						<Route
+							path="playlists/:id"
+							element={<PlaylistDetailsPage />}
+						/>
 					</Route>
 					<Route path="/auth" element={<AuthPage />}>
 						<Route index element={<LoginForm />} />
