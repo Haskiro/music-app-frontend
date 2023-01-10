@@ -1,11 +1,11 @@
-export interface IArtist {
+export interface ArtistData {
 	id: number;
 	nickname: string;
 }
 
-export interface ITrackList {
+export interface ITrack {
 	id: number;
-	artists_data: IArtist[];
+	artists_data: ArtistData[];
 	title: string;
 	audio_file: string;
 	cover: string;

@@ -1,10 +1,10 @@
-import { ITrackList } from "@interfaces/track.interface";
+import { ITrack } from "@interfaces/track.interface";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export interface trackListState {
-	trackList: ITrackList[] | null;
+	trackList: ITrack[] | null;
 	status: "idle" | "loading" | "succeeded" | "failed";
 }
 
@@ -32,7 +32,7 @@ export const trackListSlice = createSlice({
 			})
 			.addCase(
 				fetchTracks.fulfilled,
-				(state, action: PayloadAction<ITrackList[]>) => {
+				(state, action: PayloadAction<ITrack[]>) => {
 					state.status = "succeeded";
 					state.trackList = action.payload;
 				}

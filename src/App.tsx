@@ -1,3 +1,4 @@
+import AlbumList from "@components/AlbumList";
 import LoginForm from "@components/LoginForm";
 import RegisterForm from "@components/RegisterForm";
 import TrackList from "@components/TrackList";
@@ -14,7 +15,7 @@ function App() {
 					<Route path="/" element={<ContentPageLayout />}>
 						<Route index element={<UserProfile />} />
 						<Route path="tracks" element={<TrackList />} />
-						<Route path="artists" element={<>artists</>} />
+						<Route path="artists" element={<AlbumList />} />
 						<Route path="genres" element={<>genres</>} />
 						<Route path="playlists" element={<>playlists</>} />
 					</Route>
