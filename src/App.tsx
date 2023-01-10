@@ -5,6 +5,7 @@ import ArtistDetailsPage from "@pages/ArtistDetailsPage";
 import ArtistListPage from "@pages/ArtistListPage";
 import AuthPage from "@pages/AuthPage";
 import ContentPageLayout from "@pages/ContentPageLayout";
+import GenreDetailsPage from "@pages/GenreDetailsPage";
 import GenreListPage from "@pages/GenreListPage";
 import PlaylistDetailsPage from "@pages/PlaylistDetailsPage";
 import PlaylistsPage from "@pages/PlaylistsPage";
@@ -26,7 +27,10 @@ function App() {
 							element={<ArtistDetailsPage />}
 						/>
 						<Route path="genres" element={<GenreListPage />} />
-						<Route path="genres/:id" element={<GenreListPage />} />
+						<Route
+							path="genres/:id"
+							element={<GenreDetailsPage />}
+						/>
 						<Route path="playlists" element={<PlaylistsPage />} />
 						<Route
 							path="playlists/:id"

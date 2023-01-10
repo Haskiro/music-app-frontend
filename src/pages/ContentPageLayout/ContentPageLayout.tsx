@@ -17,9 +17,9 @@ const ContentPageLayout: FC = () => {
 	return (
 		<>
 			<HeaderMain />
-			<body className="container">
+			<main className="container">
 				<Outlet />
-			</body>
+			</main>
 		</>
 	);
 };

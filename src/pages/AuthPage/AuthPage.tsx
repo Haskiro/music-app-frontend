@@ -6,9 +6,9 @@ const AuthPage: FC = () => {
 	return (
 		<>
 			<HeaderAuth />
-			<body className="container">
+			<main className="container">
 				<Outlet />
-			</body>
+			</main>
 		</>
 	);
 };
