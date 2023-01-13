@@ -4,12 +4,12 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export interface trackListState {
-	trackList: ITrack[] | null;
+	trackList: ITrack[];
 	status: "idle" | "loading" | "succeeded" | "failed";
 }
 
 const initialState: trackListState = {
-	trackList: null,
+	trackList: [],
 	status: "idle",
 };
 

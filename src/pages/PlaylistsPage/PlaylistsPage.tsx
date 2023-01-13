@@ -2,6 +2,7 @@ import { FC, useEffect, useMemo, useState } from "react";
 import Card from "@components/Card";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { fetchPlaylists } from "@store/slices/playlistsSlice";
+import filterItemList from "@utils/filterItemList";
 import { Input, Spin } from "antd";
 import cn from "classnames";
 import styles from "./PlaylistsPage.module.scss";
@@ -21,19 +22,12 @@ const PlaylistsPage: FC = () => {
 	const filteredPlaylists = useMemo(() => {
 		let filteredPlaylists = playlists?.slice();
 
-		if (searchValue) {
-			filteredPlaylists = filteredPlaylists?.filter((playlist) =>
-				playlist.title.toLowerCase().includes(searchValue)
-			);
-		}
-
-		if (!sortByAlphabet) return filteredPlaylists;
-		return filteredPlaylists?.sort((a, b) => {
-			const textA = a.title.toUpperCase();
-			const textB = b.title.toUpperCase();
-
-			return textA < textB ? -1 : textA > textB ? 1 : 0;
-		});
+		return filterItemList(
+			filteredPlaylists,
+			searchValue,
+			sortByAlphabet,
+			"title"
+		);
 	}, [playlists, sortByAlphabet, searchValue]);
 
 	const onSearch = (searchValue: string) => {

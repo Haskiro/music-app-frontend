@@ -1,5 +1,5 @@
 import { FC } from "react";
-import HeaderAuth from "@components/HeaderAuth";
+import HeaderAuth from "@pages/AuthPage/components/HeaderAuth";
 import { Outlet } from "react-router-dom";
 
 const AuthPage: FC = () => {

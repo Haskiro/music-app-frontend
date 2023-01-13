@@ -36,7 +36,7 @@ const GenreDetailsPage: FC = () => {
 						<p className={styles.text}>{genre?.description}</p>
 					</div>
 					<TrackList
-						trackList={genre?.tracks_data || null}
+						trackList={genre?.tracks_data || []}
 						status="succeeded"
 					/>
 				</>

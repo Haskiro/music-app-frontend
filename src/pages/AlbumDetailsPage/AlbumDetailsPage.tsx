@@ -36,7 +36,7 @@ const AlbumDetailsPage: FC = () => {
 						<p className={styles.text}>{album?.description}</p>
 					</div>
 					<TrackList
-						trackList={album?.tracks_data || null}
+						trackList={album?.tracks_data || []}
 						status="succeeded"
 					/>
 				</>

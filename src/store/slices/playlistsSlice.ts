@@ -4,12 +4,12 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export interface playlistsState {
-	playlists: IPlaylist[] | null;
+	playlists: IPlaylist[];
 	status: "idle" | "loading" | "succeeded" | "failed";
 }
 
 const initialState: playlistsState = {
-	playlists: null,
+	playlists: [],
 	status: "idle",
 };
 
