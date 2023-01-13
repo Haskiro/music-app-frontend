@@ -23,13 +23,10 @@ Web app for listerning music
 
 -  _/_ - user profile page.
 -  _/playlists_ - list of ready playlists.
--  _/playlists/:id_ - single playlist page.
 -  _/artists_ - list of artists.
--  _/artists/:id_ - single artist page.
 -  _/genres_ - list of genres.
--  _/genres/:id_ - single genre page.
--  _/albums/:id_ - single album page.
 -  _/tracks_ - list of tracks.
+-  _/[item]/:id_ - single [item] page.
 -  _/auth_ - login page.
 -  _/auth/register_ registration page.
 
