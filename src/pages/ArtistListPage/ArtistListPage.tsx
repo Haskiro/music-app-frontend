@@ -1,8 +1,8 @@
 import { FC, useEffect } from "react";
-import Spinner from "@components/Spinner";
+import Card from "@components/Card";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { fetchArtists } from "@store/slices/artistListSlice";
-import { Link } from "react-router-dom";
+import { Spin } from "antd";
 import styles from "./ArtistListPage.module.scss";
 
 const ArtistListPage: FC = () => {
@@ -21,23 +21,27 @@ const ArtistListPage: FC = () => {
 				<ul className={styles.list}>
 					{artists?.map((artist) => (
 						<li className={styles.item} key={artist.id}>
-							<Link
-								to={`/artists/${artist.id}`}
-								className={styles.card}
-							>
-								<img
-									className={styles.image}
-									src={artist.photo}
-									alt="Фото Исполнителя"
-									height="250"
-								/>
-								<p className={styles.text}>{artist.nickname}</p>
-							</Link>
+							<Card
+								title={artist.nickname}
+								image={artist.photo}
+								target={`/artists/${artist.id}`}
+								alt="Фото Исполнителя"
+							/>
 						</li>
 					))}
 				</ul>
 			) : null}
-			{status === "loading" ? <Spinner /> : null}
+			{status === "loading" ? (
+				<Spin
+					tip="Loading"
+					size="large"
+					style={{
+						margin: "0px auto",
+						display: "block",
+						marginTop: "20px",
+					}}
+				/>
+			) : null}
 		</div>
 	);
 };

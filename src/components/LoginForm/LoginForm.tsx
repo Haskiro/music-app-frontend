@@ -1,7 +1,7 @@
 import { FC, FormEvent, useEffect, useState } from "react";
-import Spinner from "@components/Spinner";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { authUser } from "@store/slices/userSlice";
+import { Spin } from "antd";
 import { useNavigate } from "react-router-dom";
 import styles from "./LoginForm.module.scss";
 
@@ -68,7 +68,16 @@ const LoginForm: FC = () => {
 					onClick={handleSubmit}
 					disabled={status === "loading"}
 				>
-					{status === "loading" ? <Spinner /> : "Отправить"}
+					{status === "loading" ? (
+						<Spin
+							style={{
+								margin: "0px auto",
+								display: "block",
+							}}
+						/>
+					) : (
+						"Отправить"
+					)}
 				</button>
 			</form>
 		</div>

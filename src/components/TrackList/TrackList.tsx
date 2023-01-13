@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Spinner from "@components/Spinner";
 import { trackListState } from "@store/slices/trackListSlice";
+import { Spin } from "antd";
 import { Link } from "react-router-dom";
 import styles from "./TrackList.module.scss";
 
@@ -52,7 +52,17 @@ const TrackList: FC<trackListState> = ({ trackList, status }) => {
 							</li>
 					  ))
 					: null}
-				{status === "loading" ? <Spinner /> : null}
+				{status === "loading" ? (
+					<Spin
+						tip="Loading"
+						size="large"
+						style={{
+							margin: "0px auto",
+							display: "block",
+							marginTop: "20px",
+						}}
+					/>
+				) : null}
 			</ul>
 		</div>
 	);

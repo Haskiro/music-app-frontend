@@ -1,8 +1,8 @@
 import { FC, useEffect } from "react";
-import Spinner from "@components/Spinner";
+import Card from "@components/Card";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { fetchGenres } from "@store/slices/genreListSlice";
-import { Link } from "react-router-dom";
+import { Spin } from "antd";
 import styles from "./GenreListPage.module.scss";
 
 const GenreListPage: FC = () => {
@@ -21,23 +21,27 @@ const GenreListPage: FC = () => {
 				<ul className={styles.list}>
 					{genres?.map((genre) => (
 						<li className={styles.item} key={genre.id}>
-							<Link
-								to={`/genres/${genre.id}`}
-								className={styles.card}
-							>
-								<img
-									className={styles.image}
-									src={genre.cover}
-									alt="Обложка Жанра"
-									height="250"
-								/>
-								<p className={styles.text}>{genre.title}</p>
-							</Link>
+							<Card
+								title={genre.title}
+								image={genre.cover}
+								target={`/genres/${genre.id}`}
+								alt="Обложка Жанра"
+							/>
 						</li>
 					))}
 				</ul>
 			) : null}
-			{status === "loading" ? <Spinner /> : null}
+			{status === "loading" ? (
+				<Spin
+					tip="Loading"
+					size="large"
+					style={{
+						margin: "0px auto",
+						display: "block",
+						marginTop: "20px",
+					}}
+				/>
+			) : null}
 		</div>
 	);
 };

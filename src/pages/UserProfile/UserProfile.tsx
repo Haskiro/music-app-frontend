@@ -1,8 +1,8 @@
 import { FC, useEffect } from "react";
 import UserPhotoPlug from "@assets/images/user-photo-plug.png";
-import Spinner from "@components/Spinner";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { fetchUser } from "@store/slices/userSlice";
+import { Spin } from "antd";
 import styles from "./UserProfile.module.scss";
 
 const UserProfile: FC = () => {
@@ -41,7 +41,17 @@ const UserProfile: FC = () => {
 
 	return (
 		<div className={styles.container}>
-			{status === "loading" ? <Spinner /> : null}
+			{status === "loading" ? (
+				<Spin
+					tip="Loading"
+					size="large"
+					style={{
+						margin: "0px auto",
+						display: "block",
+						marginTop: "20px",
+					}}
+				/>
+			) : null}
 			{status === "succeeded" ? content : null}
 		</div>
 	);

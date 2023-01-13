@@ -1,7 +1,4 @@
 .container {
-	& svg {
-		max-width: 40px;
-	}
 }
 .heading {
 	text-align: center;
@@ -26,34 +23,4 @@
 }
 .item {
 	grid-column: span 1;
-}
-.card {
-	text-align: center;
-	display: block;
-	border-radius: 20px;
-	box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-	padding: 10px;
-	cursor: pointer;
-	transition: 0.2s ease;
-	text-decoration: none;
-	color: black;
-	&:hover {
-		transform: scale(1.05);
-		transition: 0.2s ease;
-		& .text {
-			color: cyan;
-		}
-	}
-}
-.image {
-	width: 100%;
-	height: 250px;
-	object-fit: cover;
-	border-radius: 15px;
-	margin-bottom: 15px;
-}
-.text {
-	font-weight: 600;
-	font-size: 1.1rem;
-	line-height: 1.2;
 }

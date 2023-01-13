@@ -1,7 +1,7 @@
 import { FC } from "react";
-import Spinner from "@components/Spinner";
+import Card from "@components/Card";
 import { albumListState } from "@store/slices/albumListSlice";
-import { Link } from "react-router-dom";
+import { Spin } from "antd";
 import styles from "./AlbumList.module.scss";
 
 const AlbumList: FC<albumListState> = ({ albumList, status }) => {
@@ -12,23 +12,27 @@ const AlbumList: FC<albumListState> = ({ albumList, status }) => {
 				<ul className={styles.list}>
 					{albumList?.map((album) => (
 						<li className={styles.item} key={album.id}>
-							<Link
-								to={`/albums/${album.id}`}
-								className={styles.card}
-							>
-								<img
-									className={styles.image}
-									src={album.cover}
-									alt="Обложка Альбома"
-									height="250"
-								/>
-								<p className={styles.text}>{album.title}</p>
-							</Link>
+							<Card
+								title={album.title}
+								image={album.cover}
+								target={`/albums/${album.id}`}
+								alt="Фото Исполнителя"
+							/>
 						</li>
 					))}
 				</ul>
 			) : null}
-			{status === "loading" ? <Spinner /> : null}
+			{status === "loading" ? (
+				<Spin
+					tip="Loading"
+					size="large"
+					style={{
+						margin: "0px auto",
+						display: "block",
+						marginTop: "20px",
+					}}
+				/>
+			) : null}
 		</div>
 	);
 };
