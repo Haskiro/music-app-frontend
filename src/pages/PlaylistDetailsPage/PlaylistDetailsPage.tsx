@@ -36,6 +36,7 @@ const PlaylistDetailsPage: FC = () => {
 						<p className={styles.text}>{playlist?.description}</p>
 					</div>
 					<TrackList
+						heading="Список треков"
 						trackList={playlist?.tracks_data || []}
 						status="succeeded"
 					/>

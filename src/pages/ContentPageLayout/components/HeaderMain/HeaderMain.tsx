@@ -5,9 +5,8 @@ import { logout } from "@store/slices/userSlice";
 import cn from "classnames";
 import { Link, NavLink } from "react-router-dom";
 import styles from "./HeaderMain.module.scss";
-import { HeaderProps } from "./HeaderMain.props";
 
-const HeaderMain: FC<HeaderProps> = () => {
+const HeaderMain: FC = () => {
 	const [navIsActive, setNavIsActive] = useState<boolean>(false);
 	const dispatch = useAppDispatch();
 	const name = useAppSelector((state) => state.user.user?.first_name);

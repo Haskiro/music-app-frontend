@@ -1,6 +1,7 @@
 import { FC } from "react";
-import HeaderAuth from "@pages/AuthPage/components/HeaderAuth";
+import Footer from "@components/Footer";
 import { Outlet } from "react-router-dom";
+import HeaderAuth from "./components/HeaderAuth";
 
 const AuthPage: FC = () => {
 	return (
@@ -9,6 +10,7 @@ const AuthPage: FC = () => {
 			<main className="container">
 				<Outlet />
 			</main>
+			<Footer />
 		</>
 	);
 };

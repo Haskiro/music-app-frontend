@@ -1,12 +1,13 @@
 import { FC } from "react";
-import { trackListState } from "@store/slices/trackListSlice";
 import { Spin } from "antd";
 import { Link } from "react-router-dom";
 import styles from "./TrackList.module.scss";
+import { ITrackListProps } from "./TrackList.props";
 
-const TrackList: FC<trackListState> = ({ trackList, status }) => {
+const TrackList: FC<ITrackListProps> = ({ trackList, status, heading }) => {
 	return (
 		<div className={styles.container}>
+			{heading ? <h1 className={styles.heading}>{heading}</h1> : null}
 			<ul className={styles.list}>
 				{status === "succeeded"
 					? trackList.map((track) => (

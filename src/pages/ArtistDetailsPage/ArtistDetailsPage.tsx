@@ -40,10 +40,12 @@ const ArtistDetailsPage: FC = () => {
 						<p className={styles.text}>{artist?.bio}</p>
 					</div>
 					<AlbumList
+						heading="Альбомы"
 						albumList={artist?.albums_data || []}
 						status="succeeded"
 					/>
 					<TrackList
+						heading="Список треков"
 						trackList={artist?.tracks_data || []}
 						status="succeeded"
 					/>

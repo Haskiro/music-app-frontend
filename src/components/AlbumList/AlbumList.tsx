@@ -1,13 +1,13 @@
 import { FC } from "react";
 import Card from "@components/Card";
-import { albumListState } from "@store/slices/albumListSlice";
 import { Spin } from "antd";
 import styles from "./AlbumList.module.scss";
+import { IAlbumListProps } from "./AlbumList.props";
 
-const AlbumList: FC<albumListState> = ({ albumList, status }) => {
+const AlbumList: FC<IAlbumListProps> = ({ albumList, status, heading }) => {
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.heading}>Альбомы</h1>
+			{heading ? <h1 className={styles.heading}>{heading}</h1> : null}
 			{status === "succeeded" ? (
 				<ul className={styles.list}>
 					{albumList?.map((album) => (

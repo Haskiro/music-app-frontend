@@ -1,8 +1,8 @@
 import { FC, useEffect } from "react";
-import HeaderMain from "@components/HeaderMain";
 import { useAppSelector } from "@store/hooks";
 import { Outlet, useNavigate } from "react-router-dom";
-import styles from "./ContentPageLayout.module.scss";
+import Footer from "../../components/Footer";
+import HeaderMain from "./components/HeaderMain";
 
 const ContentPageLayout: FC = () => {
 	const navigate = useNavigate();
@@ -20,6 +20,7 @@ const ContentPageLayout: FC = () => {
 			<main className="container">
 				<Outlet />
 			</main>
+			<Footer />
 		</>
 	);
 };

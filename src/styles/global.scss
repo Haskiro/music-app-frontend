@@ -1,5 +1,6 @@
 .container {
 	max-width: 1200px;
+	width: 100%;
 	padding-left: 15px;
 	padding-right: 15px;
 	margin: 0px auto;
@@ -9,6 +10,12 @@
 	font-family: Avenir, Helvetica, Arial, sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	display: flex;
+	flex-direction: column;
+	height: 100%;
+}
+
+.App {
 	display: flex;
 	flex-direction: column;
 	height: 100%;
