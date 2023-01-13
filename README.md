@@ -26,9 +26,9 @@ Web app for listerning music
 -  _/playlists/:id_ - single playlist page
 -  _/artists_ - list of artists.
 -  _/artists/:id_ - single artist page
--  _/genre_ - list of genres.
--  _/genre/:id_ - single genre page
--  _/album/:id_ - single album page
+-  _/genres_ - list of genres.
+-  _/genres/:id_ - single genre page
+-  _/albums/:id_ - single album page
 -  _/tracks_ - list of tracks.
 -  _/auth_ - login page
 -  _/auth/register_ registration page
