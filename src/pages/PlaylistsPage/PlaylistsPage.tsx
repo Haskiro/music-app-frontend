@@ -6,9 +6,9 @@ import filterItemList from "@utils/filterItemList";
 import { Input, Spin } from "antd";
 import cn from "classnames";
 import styles from "./PlaylistsPage.module.scss";
-const { Search } = Input;
 
 const PlaylistsPage: FC = () => {
+	const { Search } = Input;
 	const dispatch = useAppDispatch();
 	const [sortByAlphabet, setSortByAlphabet] = useState<boolean>(false);
 	const [searchValue, setSearchValue] = useState<string>("");

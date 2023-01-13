@@ -7,10 +7,9 @@ import styles from "./TrackList.module.scss";
 const TrackList: FC<trackListState> = ({ trackList, status }) => {
 	return (
 		<div className={styles.container}>
-			<h1 className={styles.heading}>Список треков</h1>
 			<ul className={styles.list}>
 				{status === "succeeded"
-					? trackList?.map((track) => (
+					? trackList.map((track) => (
 							<li className={styles.item} key={track.id}>
 								<div className={styles.card}>
 									<div className={styles.block}>
