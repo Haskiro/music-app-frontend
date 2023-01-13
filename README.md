@@ -16,7 +16,7 @@ Web app for listerning music
 -  Django
 -  Django REST Framework
 -  django-cors-headers
--  django-environ
+-  django-environ <br />
 [Backend repository](https://github.com/Haskiro/django)
 
 **Url routes**
