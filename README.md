@@ -21,23 +21,23 @@ Web app for listerning music
 
 **Url routes**
 
--  _/_ - user profile page
+-  _/_ - user profile page.
 -  _/playlists_ - list of ready playlists.
--  _/playlists/:id_ - single playlist page
+-  _/playlists/:id_ - single playlist page.
 -  _/artists_ - list of artists.
--  _/artists/:id_ - single artist page
+-  _/artists/:id_ - single artist page.
 -  _/genres_ - list of genres.
--  _/genres/:id_ - single genre page
--  _/albums/:id_ - single album page
+-  _/genres/:id_ - single genre page.
+-  _/albums/:id_ - single album page.
 -  _/tracks_ - list of tracks.
--  _/auth_ - login page
--  _/auth/register_ registration page
+-  _/auth_ - login page.
+-  _/auth/register_ registration page.
 
 **About project**
 
--  Adaptive and responsive design up to 320px screen width
--  Navigation is hidden if screen width <= 768px
--  Simple and uniform design
+-  Adaptive and responsive design up to 320px screen width.
+-  Navigation is hidden if screen width <= 768px.
+-  Simple and uniform design.
 
 ## Quick start
 
