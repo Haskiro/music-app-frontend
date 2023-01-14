@@ -1,15 +1,14 @@
 import { FC, useEffect, useMemo } from "react";
 import Card from "@components/Card";
+import ControlPanel from "@components/ControlPanel";
 import useControlPanel from "@hooks/useControlPanel";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { fetchArtists } from "@store/slices/artistListSlice";
 import filterItemList from "@utils/filterItemList";
-import { Input, Spin } from "antd";
-import cn from "classnames";
+import { Spin } from "antd";
 import styles from "./ArtistListPage.module.scss";
 
 const ArtistListPage: FC = () => {
-	const { Search } = Input;
 	const dispatch = useAppDispatch();
 	const artists = useAppSelector((state) => state.artistList.artistList);
 	const status = useAppSelector((state) => state.artistList.status);
@@ -18,6 +17,7 @@ const ArtistListPage: FC = () => {
 
 	useEffect(() => {
 		dispatch(fetchArtists());
+		// eslint-disable-next-line
 	}, []);
 
 	const filteredArtists = useMemo(() => {
@@ -34,32 +34,12 @@ const ArtistListPage: FC = () => {
 	return (
 		<div className={styles.container}>
 			<h1 className={styles.heading}>Исполнители</h1>
-			<div className={styles.controlPanel}>
-				<Search
-					className={styles.controlInput}
-					placeholder="Введите никнейм артиста"
-					allowClear
-					enterButton="Поиск"
-					size="large"
-					onSearch={onSearch}
-				/>
-				<div className={styles.controlButtons}>
-					<button
-						className={cn(styles.controlButtonsItem, {
-							[styles.controlButtonsItemChecked]: sortByAlphabet,
-						})}
-						onClick={onSort}
-					>
-						По Алфавиту
-					</button>
-					<button
-						className={styles.controlButtonsItem}
-						onClick={onUpdate}
-					>
-						Обновить
-					</button>
-				</div>
-			</div>
+			<ControlPanel
+				onSearch={onSearch}
+				onSort={onSort}
+				onUpdate={onUpdate}
+				sortByAlphabet={sortByAlphabet}
+			/>
 			{status === "succeeded" ? (
 				filteredArtists.length === 0 ? (
 					<p className={styles.result}>Ничего не найдено</p>
