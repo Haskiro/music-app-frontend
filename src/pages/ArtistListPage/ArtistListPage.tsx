@@ -1,5 +1,6 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useMemo } from "react";
 import Card from "@components/Card";
+import useControlPanel from "@hooks/useControlPanel";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { fetchArtists } from "@store/slices/artistListSlice";
 import filterItemList from "@utils/filterItemList";
@@ -9,11 +10,11 @@ import styles from "./ArtistListPage.module.scss";
 
 const ArtistListPage: FC = () => {
 	const { Search } = Input;
-	const [sortByAlphabet, setSortByAlphabet] = useState<boolean>(false);
-	const [searchValue, setSearchValue] = useState<string>("");
 	const dispatch = useAppDispatch();
 	const artists = useAppSelector((state) => state.artistList.artistList);
 	const status = useAppSelector((state) => state.artistList.status);
+	const { searchValue, sortByAlphabet, onSearch, onSort, onUpdate } =
+		useControlPanel(fetchArtists);
 
 	useEffect(() => {
 		dispatch(fetchArtists());
@@ -29,10 +30,6 @@ const ArtistListPage: FC = () => {
 			"nickname"
 		);
 	}, [artists, sortByAlphabet, searchValue]);
-
-	const onSearch = (searchValue: string) => {
-		setSearchValue(searchValue.toLowerCase());
-	};
 
 	return (
 		<div className={styles.container}>
@@ -51,15 +48,13 @@ const ArtistListPage: FC = () => {
 						className={cn(styles.controlButtonsItem, {
 							[styles.controlButtonsItemChecked]: sortByAlphabet,
 						})}
-						onClick={() =>
-							setSortByAlphabet((prevState) => !prevState)
-						}
+						onClick={onSort}
 					>
 						По Алфавиту
 					</button>
 					<button
 						className={styles.controlButtonsItem}
-						onClick={() => dispatch(fetchArtists())}
+						onClick={onUpdate}
 					>
 						Обновить
 					</button>

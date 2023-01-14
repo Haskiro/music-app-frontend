@@ -1,5 +1,6 @@
-import { FC, useEffect, useMemo, useState } from "react";
+import { FC, useEffect, useMemo } from "react";
 import Card from "@components/Card";
+import useControlPanel from "@hooks/useControlPanel";
 import { useAppDispatch, useAppSelector } from "@store/hooks";
 import { fetchGenres } from "@store/slices/genreListSlice";
 import filterItemList from "@utils/filterItemList";
@@ -9,11 +10,11 @@ import styles from "./GenreListPage.module.scss";
 
 const GenreListPage: FC = () => {
 	const { Search } = Input;
-	const [sortByAlphabet, setSortByAlphabet] = useState<boolean>(false);
-	const [searchValue, setSearchValue] = useState<string>("");
 	const dispatch = useAppDispatch();
 	const genres = useAppSelector((state) => state.genreList.genreList);
 	const status = useAppSelector((state) => state.genreList.status);
+	const { searchValue, sortByAlphabet, onSearch, onSort, onUpdate } =
+		useControlPanel(fetchGenres);
 
 	useEffect(() => {
 		dispatch(fetchGenres());
@@ -29,10 +30,6 @@ const GenreListPage: FC = () => {
 			"title"
 		);
 	}, [genres, sortByAlphabet, searchValue]);
-
-	const onSearch = (searchValue: string) => {
-		setSearchValue(searchValue.toLowerCase());
-	};
 
 	return (
 		<div className={styles.container}>
@@ -51,15 +48,13 @@ const GenreListPage: FC = () => {
 						className={cn(styles.controlButtonsItem, {
 							[styles.controlButtonsItemChecked]: sortByAlphabet,
 						})}
-						onClick={() =>
-							setSortByAlphabet((prevState) => !prevState)
-						}
+						onClick={onSort}
 					>
 						По Алфавиту
 					</button>
 					<button
 						className={styles.controlButtonsItem}
-						onClick={() => dispatch(fetchGenres())}
+						onClick={onUpdate}
 					>
 						Обновить
 					</button>
