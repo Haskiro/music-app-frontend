@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useAppDispatch } from "@store/hooks";
-import { fetchPlaylists } from "@store/slices/playlistsSlice";
 
 interface IUseControlPanelResult {
 	searchValue: string;
@@ -10,9 +9,7 @@ interface IUseControlPanelResult {
 	onUpdate: () => void;
 }
 
-const useControlPanel = (
-	fetchItems: typeof fetchPlaylists
-): IUseControlPanelResult => {
+const useControlPanel = (fetchItems: any): IUseControlPanelResult => {
 	const [searchValue, setSearchValue] = useState<string>("");
 	const [sortByAlphabet, setSortByAlphabet] = useState<boolean>(false);
 	const dispatch = useAppDispatch();

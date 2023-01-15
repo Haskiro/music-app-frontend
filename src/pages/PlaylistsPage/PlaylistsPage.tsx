@@ -1,4 +1,5 @@
 import { FC, useEffect, useMemo } from "react";
+import { useState } from "react";
 import Card from "@components/Card";
 import ControlPanel from "@components/ControlPanel";
 import useControlPanel from "@hooks/useControlPanel";
@@ -10,15 +11,17 @@ import styles from "./PlaylistsPage.module.scss";
 
 const PlaylistsPage: FC = () => {
 	const dispatch = useAppDispatch();
+	const [page, setPage] = useState<number>(1);
 	const playlists = useAppSelector((state) => state.playlists.playlists);
 	const status = useAppSelector((state) => state.playlists.status);
+	const playlistsCount = useAppSelector((state) => state.playlists.count);
 	const { searchValue, sortByAlphabet, onSearch, onSort, onUpdate } =
-		useControlPanel(fetchPlaylists);
+		useControlPanel(() => fetchPlaylists(page));
 
 	useEffect(() => {
-		dispatch(fetchPlaylists());
+		dispatch(fetchPlaylists(page));
 		// eslint-disable-next-line
-	}, []);
+	}, [page]);
 
 	const filteredPlaylists = useMemo(() => {
 		let filteredPlaylists = playlists?.slice();
@@ -69,6 +72,22 @@ const PlaylistsPage: FC = () => {
 					}}
 				/>
 			) : null}
+			<div className={styles.control}>
+				<button
+					className={styles.controlButton}
+					disabled={page === 1}
+					onClick={() => setPage((prevState) => prevState - 1)}
+				>
+					Назад
+				</button>
+				<button
+					className={styles.controlButton}
+					disabled={playlistsCount < page * 8}
+					onClick={() => setPage((prevState) => prevState + 1)}
+				>
+					Вперед
+				</button>
+			</div>
 		</div>
 	);
 };

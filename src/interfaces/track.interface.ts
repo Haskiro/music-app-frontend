@@ -1,4 +1,4 @@
-export interface ArtistData {
+interface ArtistData {
 	id: number;
 	nickname: string;
 }

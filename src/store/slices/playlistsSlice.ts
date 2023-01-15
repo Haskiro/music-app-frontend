@@ -6,18 +6,27 @@ import axios from "axios";
 export interface playlistsState {
 	playlists: IPlaylist[];
 	status: "idle" | "loading" | "succeeded" | "failed";
+	count: string | number;
 }
 
 const initialState: playlistsState = {
 	playlists: [],
 	status: "idle",
+	count: 0,
 };
+
+interface IFetchPlaylistsResult {
+	count: number;
+	results: IPlaylist[];
+	next: string | null;
+	previous: string | null;
+}
 
 export const fetchPlaylists = createAsyncThunk(
 	"playlists/fetchPlaylists",
-	async () => {
+	async (page: number) => {
 		const response = await axios.get(
-			`${process.env.REACT_APP_API}/playlists`
+			`${process.env.REACT_APP_API}/playlists/?page=${page}`
 		);
 		return response.data;
 	}
@@ -34,9 +43,10 @@ export const playlistsSlice = createSlice({
 			})
 			.addCase(
 				fetchPlaylists.fulfilled,
-				(state, action: PayloadAction<IPlaylist[]>) => {
+				(state, action: PayloadAction<IFetchPlaylistsResult>) => {
 					state.status = "succeeded";
-					state.playlists = action.payload;
+					state.playlists = action.payload.results;
+					state.count = action.payload.count;
 				}
 			)
 			.addCase(fetchPlaylists.rejected, (state) => {
