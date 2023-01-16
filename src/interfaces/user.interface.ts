@@ -4,7 +4,6 @@ export interface IUser {
 	last_name: string;
 	photo: string;
 	bio: string;
-	is_active: boolean;
 }
 
 export interface IAccessToken {

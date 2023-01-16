@@ -1,7 +1,7 @@
 import { IAccessToken, IUser } from "@interfaces/user.interface";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
-import { RootState } from "@store/store";
+import { AppDispatch, RootState } from "@store/store";
 import axios from "axios";
 
 export interface UserState {
@@ -77,12 +77,37 @@ export const fetchUser = createAsyncThunk<
 		: response.data;
 });
 
+export const updateUser = createAsyncThunk<
+	{ message: string },
+	IUser,
+	{ dispatch: AppDispatch; state: RootState }
+>("user/updateUser", async (updateData, thunkApi) => {
+	const state = thunkApi.getState();
+	const response = await axios.patch(
+		`${process.env.REACT_APP_API}/auth/update/`,
+		updateData,
+		{
+			headers: {
+				"Content-Type": "application/json",
+				Authorization: "Bearer " + state.user.accessToken,
+			},
+		}
+	);
+	const dispatch = thunkApi.dispatch;
+	dispatch(editUser(updateData));
+
+	return response.data;
+});
+
 export const userSlice = createSlice({
 	name: "user",
 	initialState,
 	reducers: {
 		logout: (state) => {
 			state.accessToken = null;
+		},
+		editUser: (state, action: PayloadAction<IUser>) => {
+			state.user = action.payload;
 		},
 	},
 	extraReducers(builder) {
@@ -125,11 +150,20 @@ export const userSlice = createSlice({
 			)
 			.addCase(fetchUser.rejected, (state) => {
 				state.status = "failed";
+			})
+			.addCase(updateUser.pending, (state) => {
+				state.status = "loading";
+			})
+			.addCase(updateUser.fulfilled, (state) => {
+				state.status = "succeeded";
+			})
+			.addCase(updateUser.rejected, (state) => {
+				state.status = "failed";
 			});
 	},
 });
 
 // Action creators are generated for each case reducer function
-export const { logout } = userSlice.actions;
+export const { logout, editUser } = userSlice.actions;
 
 export default userSlice.reducer;
