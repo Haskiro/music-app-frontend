@@ -42,7 +42,6 @@ const UserProfile: FC = () => {
 
 	useEffect(() => {
 		dispatch(fetchUser());
-		onFill();
 	}, []);
 
 	const content = (
@@ -75,6 +74,12 @@ const UserProfile: FC = () => {
 				style={{ marginTop: "20px" }}
 				form={form}
 				onFinish={onFinish}
+				initialValues={{
+					email: user?.email,
+					name: user?.first_name,
+					surname: user?.last_name,
+					bio: user?.bio,
+				}}
 			>
 				<Form.Item name="email" label="Почта">
 					<Input value={user?.first_name} />

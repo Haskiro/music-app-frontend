@@ -8,6 +8,7 @@ export interface UserState {
 	user: IUser | null;
 	accessToken: string | null;
 	status: "idle" | "loading" | "succeeded" | "failed";
+	authStatus: "idle" | "loading" | "succeeded" | "failed";
 }
 
 export interface ILoginData {
@@ -24,6 +25,7 @@ const initialState: UserState = {
 	user: null,
 	accessToken: null,
 	status: "idle",
+	authStatus: "idle",
 };
 
 export const authUser = createAsyncThunk(
@@ -105,6 +107,9 @@ export const userSlice = createSlice({
 	reducers: {
 		logout: (state) => {
 			state.accessToken = null;
+			state.user = null;
+			state.status = "idle";
+			state.authStatus = "idle";
 		},
 		editUser: (state, action: PayloadAction<IUser>) => {
 			state.user = action.payload;
@@ -113,30 +118,30 @@ export const userSlice = createSlice({
 	extraReducers(builder) {
 		builder
 			.addCase(authUser.pending, (state) => {
-				state.status = "loading";
+				state.authStatus = "loading";
 			})
 			.addCase(
 				authUser.fulfilled,
 				(state, action: PayloadAction<IAccessToken>) => {
-					state.status = "succeeded";
+					state.authStatus = "succeeded";
 					state.accessToken = action.payload.access;
 				}
 			)
 			.addCase(authUser.rejected, (state) => {
-				state.status = "failed";
+				state.authStatus = "failed";
 			})
 			.addCase(registerUser.pending, (state) => {
-				state.status = "loading";
+				state.authStatus = "loading";
 			})
 			.addCase(
 				registerUser.fulfilled,
 				(state, action: PayloadAction<IAccessToken>) => {
-					state.status = "succeeded";
+					state.authStatus = "succeeded";
 					state.accessToken = action.payload.access;
 				}
 			)
 			.addCase(registerUser.rejected, (state) => {
-				state.status = "failed";
+				state.authStatus = "failed";
 			})
 			.addCase(fetchUser.pending, (state) => {
 				state.status = "loading";

@@ -12,7 +12,7 @@ const LoginForm: FC = () => {
 
 	const dispatch = useAppDispatch();
 	const accessToken = useAppSelector((state) => state.user.accessToken);
-	const status = useAppSelector((state) => state.user.status);
+	const status = useAppSelector((state) => state.user.authStatus);
 
 	useEffect(() => {
 		if (accessToken) navigate("/");
