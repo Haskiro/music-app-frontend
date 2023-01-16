@@ -23,6 +23,16 @@ export const fetchPlaylistById = createAsyncThunk(
 	}
 );
 
+export const deletePlaylist = createAsyncThunk(
+	"playlists/deletePlaylist",
+	async (id: string) => {
+		const response = await axios.delete(
+			`${process.env.REACT_APP_API}/playlists/${id}`
+		);
+		return response.data;
+	}
+);
+
 export const playlistDetailsSlice = createSlice({
 	name: "playlistDetails",
 	initialState,
@@ -40,6 +50,15 @@ export const playlistDetailsSlice = createSlice({
 				}
 			)
 			.addCase(fetchPlaylistById.rejected, (state) => {
+				state.status = "failed";
+			})
+			.addCase(deletePlaylist.pending, (state) => {
+				state.status = "loading";
+			})
+			.addCase(deletePlaylist.fulfilled, (state) => {
+				state.status = "succeeded";
+			})
+			.addCase(deletePlaylist.rejected, (state) => {
 				state.status = "failed";
 			});
 	},
