@@ -1,9 +1,13 @@
-const filterItemList = (
-	itemList: any[],
+const filterItemList = <
+	T extends Record<U, string>,
+	R extends keyof T,
+	U extends Extract<"title" | "nickname", R>
+>(
+	itemList: T[],
 	searchValue: string,
 	sortByAlphabet: boolean,
-	filterKey: "title" | "nickname"
-): any[] => {
+	filterKey: U
+): T[] => {
 	if (searchValue) {
 		itemList = itemList.filter((item) =>
 			item[filterKey].toLowerCase().includes(searchValue)
