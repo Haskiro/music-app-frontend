@@ -1,4 +1,4 @@
-import filterItemList from "../../utils/filterItemList";
+import filterItemList from "./filterItemList";
 
 describe("Filter item list", () => {
 	let itemList: any[];

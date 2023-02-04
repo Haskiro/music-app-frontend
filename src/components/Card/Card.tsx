@@ -7,7 +7,9 @@ const Card: FC<ICardProps> = ({ title, image, target, alt }) => {
 	return (
 		<div className={styles.card}>
 			<img className={styles.image} src={image} alt={alt} height="250" />
-			<p className={styles.text}>{title}</p>
+			<p className={styles.text} data-testid="title">
+				{title}
+			</p>
 			<Link className={styles.button} to={target}>
 				Открыть
 			</Link>
