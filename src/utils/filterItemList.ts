@@ -1,7 +1,7 @@
 const filterItemList = <
-	T extends Record<U, string>,
-	R extends keyof T,
-	U extends Extract<"title" | "nickname", R>
+	// R extends keyof T,
+	U extends Extract<"title" | "nickname", keyof T>,
+	T extends Record<U, string>
 >(
 	itemList: T[],
 	searchValue: string,
@@ -10,7 +10,7 @@ const filterItemList = <
 ): T[] => {
 	if (searchValue) {
 		itemList = itemList.filter((item) =>
-			item[filterKey].toLowerCase().includes(searchValue)
+			item[filterKey].toLowerCase().includes(searchValue.toLowerCase())
 		);
 	}
 
