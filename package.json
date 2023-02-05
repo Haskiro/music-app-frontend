@@ -56,5 +56,8 @@
 		"react-app-rewire-alias": "^1.1.7",
 		"react-app-rewired": "^2.2.1",
 		"sass": "^1.57.1"
+	},
+	"jest": {
+		"resetMocks": false
 	}
 }

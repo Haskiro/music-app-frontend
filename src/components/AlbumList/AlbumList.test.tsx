@@ -4,9 +4,14 @@ import { cleanup, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import AlbumList from "./AlbumList";
 
-jest.mock("../Card", () => (props: ICardProps) => (
+const mockCard = jest.fn((props: ICardProps) => (
 	<div data-testid="Card">{props.title}</div>
 ));
+
+jest.mock("../Card", () => ({
+	__esModule: true,
+	default: (props: ICardProps) => mockCard(props),
+}));
 jest.mock("antd", () => ({
 	__esModule: true,
 	Spin: () => <div data-testid="Spin" />,
@@ -66,6 +71,7 @@ describe("Album List", () => {
 		});
 		afterEach(() => {
 			cleanup();
+			mockCard.mockClear();
 		});
 
 		it("should render loading spinner if status is loadind", () => {
@@ -109,30 +115,35 @@ describe("Album List", () => {
 		});
 	});
 
-	// describe("Card correct mock", () => {
-	// 	beforeAll(() => {
-	// 		render(
-	// 			<AlbumList
-	// 				albumList={albumList}
-	// 				status="succeeded"
-	// 				heading="Список Альбомов"
-	// 			/>,
-	// 			{
-	// 				wrapper: MemoryRouter,
-	// 			}
-	// 		);
-	// 	});
+	describe("Card correct mock", () => {
+		beforeAll(() => {
+			// mockedCard.mockClear();
+			render(
+				<AlbumList
+					albumList={[albumList[0]]}
+					status="succeeded"
+					heading="Список Альбомов"
+				/>,
+				{
+					wrapper: MemoryRouter,
+				}
+			);
+		});
 
-	// 	afterAll(() => {
-	// 		cleanup();
-	// 	});
+		afterAll(() => {
+			cleanup();
+		});
 
-	// 	it("should pass corret prop", () => {
-	// 		const cardList = screen.queryAllByTestId("Card");
+		it("should pass correct prop", () => {
+			const album = albumList[0];
 
-	// 		cardList.forEach((item, i) => {
-	// 			expect(item).toHaveBeenCalledWith(albumList[i]);
-	// 		});
-	// 	});
-	// });
+			expect(mockCard).toBeCalledTimes(1);
+			expect(mockCard).toHaveBeenCalledWith({
+				title: album.title,
+				image: album.cover,
+				target: `/albums/${album.id}`,
+				alt: "Фото Исполнителя",
+			});
+		});
+	});
 });
