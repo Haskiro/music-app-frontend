@@ -28,7 +28,7 @@
 		"build": "react-app-rewired build",
 		"lint": "eslint \"./src/**/*.{js,jsx,ts,tsx}\"",
 		"lint:fix": "eslint \"./src/**/*.{js,jsx,ts,tsx}\" --fix",
-		"test": "react-scripts test"
+		"test": "react-app-rewired test"
 	},
 	"eslintConfig": {
 		"extends": [

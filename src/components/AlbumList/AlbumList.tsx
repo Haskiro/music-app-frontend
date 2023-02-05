@@ -1,6 +1,6 @@
 import { FC } from "react";
-import Card from "@components/Card";
 import { Spin } from "antd";
+import Card from "../Card";
 import styles from "./AlbumList.module.scss";
 import { IAlbumListProps } from "./AlbumList.props";
 
