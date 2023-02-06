@@ -36,6 +36,7 @@ const TrackCard: FC<{ track: ITrack }> = ({ track }) => {
 				className={styles.audio}
 				controls
 				src={track.audio_file}
+				data-testid="audio"
 			></audio>
 		</div>
 	);
