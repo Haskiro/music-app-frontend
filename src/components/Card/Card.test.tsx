@@ -2,7 +2,7 @@ import { render, cleanup, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
 import Card from "./Card";
 
-describe.skip("Card", () => {
+describe("Card", () => {
 	const cardProps = {
 		title: "Title",
 		image: "image_src",

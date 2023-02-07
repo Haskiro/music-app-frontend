@@ -1,13 +1,12 @@
 import { FC } from "react";
-import TrackCard from "@components/TrackCard";
 import { Spin } from "antd";
-import { Link } from "react-router-dom";
+import TrackCard from "../TrackCard";
 import styles from "./TrackList.module.scss";
 import { ITrackListProps } from "./TrackList.props";
 
 const TrackList: FC<ITrackListProps> = ({ trackList, status, heading }) => {
 	return (
-		<div className={styles.container}>
+		<div className={styles.container} data-testid="body">
 			{heading ? <h1 className={styles.heading}>{heading}</h1> : null}
 			<ul className={styles.list}>
 				{status === "succeeded"
