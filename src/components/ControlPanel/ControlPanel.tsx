@@ -27,6 +27,7 @@ const ControlPanel: FC<IControlPanelProps> = ({
 						[styles.controlButtonsItemChecked]: sortByAlphabet,
 					})}
 					onClick={onSort}
+					data-testid="sortButton"
 				>
 					По Алфавиту
 				</button>
