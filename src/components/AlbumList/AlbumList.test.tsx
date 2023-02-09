@@ -97,7 +97,6 @@ describe("Album List", () => {
 		});
 
 		it("should render correct count list of items", () => {
-			screen.debug(screen.getByRole("list"));
 			expect(screen.getAllByTestId("Card")).toHaveLength(
 				albumList.length
 			);

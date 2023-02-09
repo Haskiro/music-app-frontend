@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useAppDispatch } from "@store/hooks";
+import { useAppDispatch } from "../store/hooks";
 
 interface IUseControlPanelResult {
 	searchValue: string;

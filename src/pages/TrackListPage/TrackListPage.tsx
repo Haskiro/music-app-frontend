@@ -1,10 +1,10 @@
 import { FC, useEffect, useMemo } from "react";
-import ControlPanel from "@components/ControlPanel";
-import TrackList from "@components/TrackList";
-import useControlPanel from "@hooks/useControlPanel";
-import { useAppDispatch, useAppSelector } from "@store/hooks";
-import { fetchTracks } from "@store/slices/trackListSlice";
-import filterItemList from "@utils/filterItemList";
+import ControlPanel from "../../components/ControlPanel";
+import TrackList from "../../components/TrackList";
+import useControlPanel from "../../hooks/useControlPanel";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { fetchTracks } from "../../store/slices/trackListSlice";
+import filterItemList from "../../utils/filterItemList";
 import styles from "./TrackListPage.module.scss";
 
 const TrackListPage: FC = () => {
