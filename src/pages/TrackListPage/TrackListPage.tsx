@@ -40,7 +40,9 @@ const TrackListPage: FC = () => {
 				sortByAlphabet={sortByAlphabet}
 			/>
 			{filteredTracks.length === 0 ? (
-				<p className={styles.result}>Ничего не найдено</p>
+				<p className={styles.result} data-testid="Plug">
+					Ничего не найдено
+				</p>
 			) : (
 				<TrackList trackList={filteredTracks} status={status} />
 			)}

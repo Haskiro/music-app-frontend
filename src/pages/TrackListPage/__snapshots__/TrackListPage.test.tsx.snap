@@ -90,6 +90,7 @@ Object {
       </div>
       <p
         class="result"
+        data-testid="Plug"
       >
         Ничего не найдено
       </p>
@@ -181,6 +182,7 @@ Object {
     </div>
     <p
       class="result"
+      data-testid="Plug"
     >
       Ничего не найдено
     </p>
