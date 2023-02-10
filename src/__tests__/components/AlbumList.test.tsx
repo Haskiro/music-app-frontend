@@ -2,13 +2,13 @@ import { ICardProps } from "@components/Card/CardProps";
 import { IAlbum } from "@interfaces/album.interface";
 import { cleanup, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import AlbumList from "./AlbumList";
+import AlbumList from "../../components/AlbumList";
 
 const mockCard = jest.fn((props: ICardProps) => (
 	<div data-testid="Card">{props.title}</div>
 ));
 
-jest.mock("../Card", () => ({
+jest.mock("../../components/Card", () => ({
 	__esModule: true,
 	default: (props: ICardProps) => mockCard(props),
 }));

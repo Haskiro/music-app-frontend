@@ -1,7 +1,7 @@
 import { ITrack } from "@interfaces/track.interface";
 import { cleanup, render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import TrackCard from "./TrackCard";
+import TrackCard from "../../components/TrackCard";
 
 describe("Track", () => {
 	const track: ITrack = {

@@ -1,12 +1,12 @@
 import { ITrack } from "@interfaces/track.interface";
 import { screen, render, cleanup } from "@testing-library/react/pure";
-import TrackList from "./TrackList";
+import TrackList from "../../components/TrackList";
 
 const mockTrackCard = jest.fn((props: { track: ITrack }) => (
 	<div data-testid="TrackCard" />
 ));
 
-jest.mock("../TrackCard", () => ({
+jest.mock("../../components/TrackCard", () => ({
 	__esModule: true,
 	default: (props: { track: ITrack }) => mockTrackCard(props),
 }));

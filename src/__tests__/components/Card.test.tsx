@@ -1,6 +1,6 @@
 import { render, cleanup, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Card from "./Card";
+import Card from "../../components/Card";
 
 describe("Card", () => {
 	const cardProps = {

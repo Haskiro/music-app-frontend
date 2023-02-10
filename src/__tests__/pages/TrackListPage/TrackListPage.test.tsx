@@ -1,11 +1,11 @@
 import { ITrackListProps } from "@components/TrackList/TrackList.props";
 import { ITrack } from "@interfaces/track.interface";
 import { render, screen } from "@testing-library/react";
-import * as reduxHooks from "../../store/hooks";
-import * as actions from "../../store/slices/trackListSlice";
-import TrackListPage from "./TrackListPage";
+import TrackListPage from "../../../pages/TrackListPage";
+import * as reduxHooks from "../../../store/hooks";
+import * as actions from "../../../store/slices/trackListSlice";
 
-jest.mock("../../store/hooks");
+jest.mock("../../../store/hooks");
 const trackList: ITrack[] = [
 	{
 		id: 1,
@@ -56,7 +56,7 @@ const mockedTrackList = jest.fn((props: ITrackListProps) => (
 	>; 
 */
 
-jest.mock("../../components/TrackList", () => ({
+jest.mock("../../../components/TrackList", () => ({
 	__esModule: true,
 	default: (props: ITrackListProps) => mockedTrackList(props),
 }));

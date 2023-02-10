@@ -1,6 +1,6 @@
 import { screen, render, cleanup } from "@testing-library/react/pure";
 import userEvent from "@testing-library/user-event";
-import ControlPanel from "./ControlPanel";
+import ControlPanel from "../../components/ControlPanel";
 import styles from "./ControlPanel.module.scss";
 
 describe("Control Panel", () => {
