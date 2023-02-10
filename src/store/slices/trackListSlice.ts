@@ -24,7 +24,12 @@ export const fetchTracks = createAsyncThunk(
 export const trackListSlice = createSlice({
 	name: "trackList",
 	initialState,
-	reducers: {},
+	reducers: {
+		// for test example
+		setStatusLoading: (state) => {
+			state.status = "loading";
+		},
+	},
 	extraReducers(builder) {
 		builder
 			.addCase(fetchTracks.pending, (state) => {
@@ -44,6 +49,6 @@ export const trackListSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const {} = trackListSlice.actions;
+export const { setStatusLoading } = trackListSlice.actions;
 
 export default trackListSlice.reducer;
