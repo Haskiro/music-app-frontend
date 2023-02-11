@@ -64,7 +64,7 @@ export const fetchUser = createAsyncThunk<
 	IUser,
 	undefined,
 	{ state: RootState }
->("user/fetchUser", async (undefined, thunkApi) => {
+>("user/fetchUser", async (_, thunkApi) => {
 	const state = thunkApi.getState();
 	const response = await axios.get(`${process.env.REACT_APP_API}/auth/me/`, {
 		headers: {
