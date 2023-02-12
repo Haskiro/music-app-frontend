@@ -1,9 +1,9 @@
 import { FC, useEffect } from "react";
-import UserPhotoPlug from "@assets/images/user-photo-plug.png";
 import { IUser } from "@interfaces/user.interface";
-import { useAppDispatch, useAppSelector } from "@store/hooks";
-import { fetchUser, updateUser } from "@store/slices/userSlice";
 import { Button, Form, Input, Spin } from "antd";
+import UserPhotoPlug from "../../assets/images/user-photo-plug.png";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { fetchUser, updateUser } from "../../store/slices/userSlice";
 import styles from "./UserProfile.module.scss";
 
 const UserProfile: FC = () => {

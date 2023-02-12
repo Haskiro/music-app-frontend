@@ -1,0 +1,532 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`User Profile should create user profile page with user data 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="container"
+      >
+        <div
+          class="header"
+        >
+          <img
+            alt="Фотография"
+            class="photo"
+            height="250"
+            src="user-photo-plug.png"
+            width="250"
+          />
+          <div
+            class="block"
+          >
+            <h1
+              class="title"
+            >
+              Профиль
+            </h1>
+            <p
+              class="text"
+            >
+              Pavel
+               
+              Surname
+            </p>
+          </div>
+        </div>
+        <div
+          class="body"
+        >
+          <p
+            class="text"
+          >
+            Нет заполненной биографии
+          </p>
+        </div>
+        <h2
+          class="formHeading"
+        >
+          Редактировать Профиль
+        </h2>
+        <form
+          class="ant-form ant-form-horizontal css-dev-only-do-not-override-sk7ap8"
+          id="control-ref"
+          style="margin-top: 20px;"
+        >
+          <div
+            class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-col ant-col-3 ant-form-item-label css-dev-only-do-not-override-sk7ap8"
+              >
+                <label
+                  class=""
+                  for="control-ref_email"
+                  title="Почта"
+                >
+                  Почта
+                </label>
+              </div>
+              <div
+                class="ant-col ant-col-16 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <input
+                      class="ant-input css-dev-only-do-not-override-sk7ap8"
+                      id="control-ref_email"
+                      type="text"
+                      value="email@email.email"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-col ant-col-3 ant-form-item-label css-dev-only-do-not-override-sk7ap8"
+              >
+                <label
+                  class=""
+                  for="control-ref_name"
+                  title="Имя"
+                >
+                  Имя
+                </label>
+              </div>
+              <div
+                class="ant-col ant-col-16 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <input
+                      class="ant-input css-dev-only-do-not-override-sk7ap8"
+                      id="control-ref_name"
+                      type="text"
+                      value="Pavel"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-col ant-col-3 ant-form-item-label css-dev-only-do-not-override-sk7ap8"
+              >
+                <label
+                  class=""
+                  for="control-ref_surname"
+                  title="Фамилия"
+                >
+                  Фамилия
+                </label>
+              </div>
+              <div
+                class="ant-col ant-col-16 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <input
+                      class="ant-input css-dev-only-do-not-override-sk7ap8"
+                      id="control-ref_surname"
+                      type="text"
+                      value="Surname"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-col ant-col-3 ant-form-item-label css-dev-only-do-not-override-sk7ap8"
+              >
+                <label
+                  class=""
+                  for="control-ref_bio"
+                  title="Биография"
+                >
+                  Биография
+                </label>
+              </div>
+              <div
+                class="ant-col ant-col-16 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <textarea
+                      class="ant-input css-dev-only-do-not-override-sk7ap8"
+                      id="control-ref_bio"
+                      rows="4"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-col ant-col-16 ant-col-offset-3 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+              >
+                <div
+                  class="ant-form-item-control-input"
+                >
+                  <div
+                    class="ant-form-item-control-input-content"
+                  >
+                    <button
+                      class="ant-btn css-dev-only-do-not-override-sk7ap8 ant-btn-primary"
+                      type="submit"
+                    >
+                      <span>
+                        Отправить
+                      </span>
+                    </button>
+                    <button
+                      class="ant-btn css-dev-only-do-not-override-sk7ap8 ant-btn-link"
+                      type="button"
+                    >
+                      <span>
+                        Отменить изменения
+                      </span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="container"
+    >
+      <div
+        class="header"
+      >
+        <img
+          alt="Фотография"
+          class="photo"
+          height="250"
+          src="user-photo-plug.png"
+          width="250"
+        />
+        <div
+          class="block"
+        >
+          <h1
+            class="title"
+          >
+            Профиль
+          </h1>
+          <p
+            class="text"
+          >
+            Pavel
+             
+            Surname
+          </p>
+        </div>
+      </div>
+      <div
+        class="body"
+      >
+        <p
+          class="text"
+        >
+          Нет заполненной биографии
+        </p>
+      </div>
+      <h2
+        class="formHeading"
+      >
+        Редактировать Профиль
+      </h2>
+      <form
+        class="ant-form ant-form-horizontal css-dev-only-do-not-override-sk7ap8"
+        id="control-ref"
+        style="margin-top: 20px;"
+      >
+        <div
+          class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+        >
+          <div
+            class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-col ant-col-3 ant-form-item-label css-dev-only-do-not-override-sk7ap8"
+            >
+              <label
+                class=""
+                for="control-ref_email"
+                title="Почта"
+              >
+                Почта
+              </label>
+            </div>
+            <div
+              class="ant-col ant-col-16 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <input
+                    class="ant-input css-dev-only-do-not-override-sk7ap8"
+                    id="control-ref_email"
+                    type="text"
+                    value="email@email.email"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+        >
+          <div
+            class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-col ant-col-3 ant-form-item-label css-dev-only-do-not-override-sk7ap8"
+            >
+              <label
+                class=""
+                for="control-ref_name"
+                title="Имя"
+              >
+                Имя
+              </label>
+            </div>
+            <div
+              class="ant-col ant-col-16 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <input
+                    class="ant-input css-dev-only-do-not-override-sk7ap8"
+                    id="control-ref_name"
+                    type="text"
+                    value="Pavel"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+        >
+          <div
+            class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-col ant-col-3 ant-form-item-label css-dev-only-do-not-override-sk7ap8"
+            >
+              <label
+                class=""
+                for="control-ref_surname"
+                title="Фамилия"
+              >
+                Фамилия
+              </label>
+            </div>
+            <div
+              class="ant-col ant-col-16 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <input
+                    class="ant-input css-dev-only-do-not-override-sk7ap8"
+                    id="control-ref_surname"
+                    type="text"
+                    value="Surname"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+        >
+          <div
+            class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-col ant-col-3 ant-form-item-label css-dev-only-do-not-override-sk7ap8"
+            >
+              <label
+                class=""
+                for="control-ref_bio"
+                title="Биография"
+              >
+                Биография
+              </label>
+            </div>
+            <div
+              class="ant-col ant-col-16 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <textarea
+                    class="ant-input css-dev-only-do-not-override-sk7ap8"
+                    id="control-ref_bio"
+                    rows="4"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="ant-form-item css-dev-only-do-not-override-sk7ap8"
+        >
+          <div
+            class="ant-row ant-form-item-row css-dev-only-do-not-override-sk7ap8"
+          >
+            <div
+              class="ant-col ant-col-16 ant-col-offset-3 ant-form-item-control css-dev-only-do-not-override-sk7ap8"
+            >
+              <div
+                class="ant-form-item-control-input"
+              >
+                <div
+                  class="ant-form-item-control-input-content"
+                >
+                  <button
+                    class="ant-btn css-dev-only-do-not-override-sk7ap8 ant-btn-primary"
+                    type="submit"
+                  >
+                    <span>
+                      Отправить
+                    </span>
+                  </button>
+                  <button
+                    class="ant-btn css-dev-only-do-not-override-sk7ap8 ant-btn-link"
+                    type="button"
+                  >
+                    <span>
+                      Отменить изменения
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;
